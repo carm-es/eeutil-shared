@@ -1,0 +1,12 @@
+#NOTE: This is a Maven Resolver internal implementation file, its format can be changed without prior notice.
+#Fri Dec 04 08:34:49 CET 2020
+https\://nexus.carm.es/nexus/content/groups/public/.error=
+https\://repo.maven.apache.org/maven2/.lastUpdated=1607067289473
+https\://nexus.carm.es/nexus/content/repositories/thirdparty/.lastUpdated=1607067288841
+https\://raw.githubusercontent.com/aid35y/Eeutil-Misc/mvn-repo/.error=
+https\://raw.githubusercontent.com/aid35y/Eeutil-Vis-Docexp/mvn-repo/.error=
+https\://nexus.carm.es/nexus/content/groups/public/.lastUpdated=1607067288857
+https\://nexus.carm.es/nexus/content/repositories/thirdparty/.error=
+https\://raw.githubusercontent.com/aid35y/Eeutil-Misc/mvn-repo/.lastUpdated=1607067289196
+https\://repo.maven.apache.org/maven2/.error=
+https\://raw.githubusercontent.com/aid35y/Eeutil-Vis-Docexp/mvn-repo/.lastUpdated=1607067289203
