@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <!-- Copyright (C) 2012-13 MINHAP, Gobierno de España
    This program is licensed and may be used, modified and redistributed under the terms
    of the European Public License (EUPL), either version 1.1 or (at your
@@ -10,8 +11,6 @@
    You should have received a copy of the EUPL1.1 license
    along with this program; if not, you may find it at
    http://joinup.ec.europa.eu/software/page/eupl/licence-eupl -->
-
-<?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
 	xmlns:aop="http://www.springframework.org/schema/aop" xmlns:jdbc="http://www.springframework.org/schema/jdbc"
@@ -75,7 +74,10 @@
       <list>
         <value>es/mpt/dsic/loadTables/model/UnidadOrganica.hbm.xml</value>
       </list>
-    </property>
+      </property>
+      <property name="hibernateProperties">
+        <value>hibernate.dialect=${databaseGen.hibernateDialect}</value>
+      </property>
     </bean>
     
 </beans>

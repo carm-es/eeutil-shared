@@ -4,19 +4,13 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>es.gob.aapp.eeutil</groupId>
-	<artifactId>wrapper-eeutil-mvn-base</artifactId>
+	<groupId>es.carm.eeutil</groupId>
+	<artifactId>shared-mvn-base-wrapper</artifactId>
 	<version>4.2.0-CARM.1-SNAPSHOT</version>
 	<packaging>pom</packaging>
 
-	<name>eeutil-util-firma</name>
-
-	<scm>
-		<connection>scm:git:https://github.com/josefsabater/eeutil-util-firma.git</connection>
-		<developerConnection>scm:git:[push=]https://github.com/josefsabater/eeutil-util-firma.git[fetch=]https://github.com/josefsabater/eeutil-util-firma.git</developerConnection>
-		<url>https://github.com/josefsabater/eeutil-util-firma.git</url>
-		<tag>HEAD</tag>
-	</scm>
+	<name>eeutil-shared</name>
+	<description>Proyecto que contiene todos los módulos comunes de los proyectos Eeutils de la AGE</description>
 
 	<licenses>
 		<license>
@@ -25,6 +19,12 @@
 		</license>
 	</licenses>
 
+	<scm>
+		<connection>scm:git:https://github.com/josefsabater/eeutil-shared.git</connection>
+		<developerConnection>scm:git:[push=]https://github.com/josefsabater/eeutil-shared.git[fetch=]https://github.com/josefsabater/eeutil-shared.git</developerConnection>
+		<url>https://github.com/josefsabater/eeutil-shared.git</url>
+		<tag>HEAD</tag>
+	</scm>
 
 	<properties>
 		<version.java>1.8</version.java>
@@ -41,9 +41,9 @@
 				<enabled>true</enabled>
 				<updatePolicy>never</updatePolicy>
 			</snapshots>
-			<id>maven-carm-es-eeutil-util-firma-remote-repos</id>
-			<name>repo-carm-es-eeutil-util-firma-remote-repos</name>
-			<url>https://raw.githubusercontent.com/josefsabater/eeutil-util-firma/mvn-repo</url>
+			<id>maven-carm-es-eeutil-shared-remote-repos</id>
+			<name>repo-carm-es-eeutil-shared-remote-repos</name>
+			<url>https://raw.githubusercontent.com/josefsabater/eeutil-shared/mvn-repo</url>
 		</repository>
 		<repository>
 			<snapshots>
@@ -55,9 +55,39 @@
 		</repository>
 	</repositories>
 
+	<modules>
+		<module>fuentes/eeutil-mvn-base</module>
+	</modules>
+
 	<build>
 		<pluginManagement>
 			<plugins>
+				<!-- Compilador de maven -->
+				<plugin>
+					<artifactId>maven-compiler-plugin</artifactId>
+					<version>3.1</version>
+					<configuration>
+						<source>${version.java}</source>
+						<target>${version.java}</target>
+						<encoding>${codificacion}</encoding>
+					</configuration>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-resources-plugin</artifactId>
+					<version>2.4</version>
+					<configuration>
+						<encoding>${codificacion}</encoding>
+					</configuration>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-release-plugin</artifactId>
+					<version>2.5.3</version>
+					<configuration>
+						<tagNameFormat>v@{project.version}</tagNameFormat>
+					</configuration>
+				</plugin>
 				<!-- Formateo de código fuente -->
 				<plugin>
 					<groupId>net.revelc.code.formatter</groupId>
@@ -80,23 +110,19 @@
 						</excludes>
 					</configuration>
 				</plugin>
-				<plugin>
-					<artifactId>maven-compiler-plugin</artifactId>
-					<version>3.1</version>
-					<configuration>
-						<source>${version.java}</source>
-						<target>${version.java}</target>
-						<encoding>${codificacion}</encoding>
-					</configuration>
-				</plugin>
-				<plugin>
-					<groupId>org.apache.maven.plugins</groupId>
-					<artifactId>maven-resources-plugin</artifactId>
-					<version>2.4</version>
-					<configuration>
-						<encoding>${codificacion}</encoding>
-					</configuration>
-				</plugin>
+				<!-- Añadir git-hook en el precomit para formatear automáticamente el 
+					código fuente -->
+				<!-- <plugin> -->
+				<!-- <groupId>io.github.phillipuniverse</groupId> -->
+				<!-- <artifactId>githook-maven-plugin</artifactId> -->
+				<!-- <version>1.0.4</version> -->
+				<!-- <configuration> -->
+				<!-- <hooks> -->
+				<!-- <pre-commit>mvn -->
+				<!-- net.revelc.code.formatter:formatter-maven-plugin:format</pre-commit> -->
+				<!-- </hooks> -->
+				<!-- </configuration> -->
+				<!-- </plugin> -->
 			</plugins>
 		</pluginManagement>
 		<plugins>
@@ -112,11 +138,20 @@
 					</execution>
 				</executions>
 			</plugin>
+			<!-- Por defecto, instalar los hooks de git en el cliente, cuando se invoque 
+				a maven -->
+			<!-- <plugin> -->
+			<!-- <groupId>io.github.phillipuniverse</groupId> -->
+			<!-- <artifactId>githook-maven-plugin</artifactId> -->
+			<!-- <executions> -->
+			<!-- <execution> -->
+			<!-- <goals> -->
+			<!-- <goal>install</goal> -->
+			<!-- </goals> -->
+			<!-- </execution> -->
+			<!-- </executions> -->
+			<!-- </plugin> -->
 		</plugins>
 	</build>
-
-	<modules>
-		<module>fuentes/eeutil-mvn-base</module>
-	</modules>
 
 </project>

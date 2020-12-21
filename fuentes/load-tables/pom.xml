@@ -15,9 +15,8 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<artifactId>eeutil-load-tables</artifactId>
+	
 	<description>Carga tablas Eeutil</description>
-	<version>2.1</version>
-	<packaging>jar</packaging>
 	
 	<parent>
 		<groupId>es.gob.aapp.eeutil</groupId>
