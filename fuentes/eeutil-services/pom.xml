@@ -231,10 +231,6 @@
 			<groupId>org.apache.cxf</groupId>
 			<artifactId>cxf-common-utilities</artifactId>
 		</dependency>
-		<dependency>
-			<groupId>org.apache.cxf</groupId>
-			<artifactId>cxf-rt-bindings-soap</artifactId>
-		</dependency>
 
 		<!-- ws security -->
 		<dependency>
