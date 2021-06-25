@@ -44,6 +44,7 @@ public enum DecisionType {
   PERMIT("Permit"), @XmlEnumValue("Deny")
   DENY("Deny"), @XmlEnumValue("Indeterminate")
   INDETERMINATE("Indeterminate");
+
   private final String value;
 
   DecisionType(String v) {

@@ -36,6 +36,7 @@ public class DSSTiposFirmaConstantes {
     DSS_SIGNATURE_TYPE_PADES(
         "urn:afirma:dss:1.0:profile:XSS:forms:PAdES"), DSS_SIGNATURE_TYPE_PADES_2_1_1(
             "http://uri.etsi.org/103172/v2.1.1#");
+
     private final String type;
 
     PADES_TYPES(final String type) {
@@ -58,6 +59,7 @@ public class DSSTiposFirmaConstantes {
         "http://uri.etsi.org/103171/v2.1.1#"), DSS_SIGNATURE_TYPE_XADES_1_4_1(
             "http://uri.etsi.org/01903/v1.4.1#"), DSS_SIGNATURE_TYPE_XADES_1_2_2(
                 "http://uri.etsi.org/01903/v1.2.2#");
+
     private final String type;
 
     XADES_TYPES(final String type) {
@@ -77,6 +79,7 @@ public class DSSTiposFirmaConstantes {
   public static enum CADES_TYPES {
     DSS_SIGNATURE_TYPE_CADES("http://uri.etsi.org/01733/v1.7.3#"), DSS_SIGNATURE_TYPE_CADES_2_2_1(
         "http://uri.etsi.org/103173/v2.2.1#");
+
     private final String type;
 
     CADES_TYPES(final String type) {

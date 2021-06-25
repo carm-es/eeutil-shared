@@ -42,6 +42,7 @@ public enum QualifierType {
   @XmlEnumValue("OIDAsURI")
   OID_AS_URI("OIDAsURI"), @XmlEnumValue("OIDAsURN")
   OID_AS_URN("OIDAsURN");
+
   private final String value;
 
   QualifierType(String v) {
