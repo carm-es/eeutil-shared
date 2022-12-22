@@ -51,33 +51,8 @@
 	<bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager"
 		p:entityManagerFactory-ref="entityManagerFactory" />
 
-	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"
-		destroy-method="close">
-		<property name="driverClassName">
-			<value>${database.driverClassName}</value>
-		</property>
-		<property name="url">
-			<value>${databaseGen.url}</value>
-		</property>
-		<property name="username">
-			<value>${databaseGen.username}</value>
-		</property>
-		<property name="password">
-			<value>${databaseGen.password}</value>
-		</property>
-		<property name="defaultAutoCommit">
-			<value>false</value>
-		</property>
-		<property name="maxWait">
-			<value>-1</value>
-		</property>
-		<property name="maxIdle">
-			<value>10</value>
-		</property>
-		<property name="maxActive">
-			<value>20</value>
-		</property>
-
+	<bean id="dataSource" class="org.springframework.jndi.JndiObjectFactoryBean">
+		<property name="jndiName" value="${database.jndi}"/>
 	</bean>
 
 
