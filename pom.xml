@@ -4,7 +4,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>es.carm.eeutil</groupId>
 	<artifactId>shared-mvn-base-wrapper</artifactId>
-	<version>4.2.0-CARM.3</version>
+	<version>4.2.0-CARM.4-SNAPSHOT</version>
 	<packaging>pom</packaging>
 
 	<name>eeutil-shared</name>
@@ -22,7 +22,7 @@
 		<connection>scm:git:https://github.com/carm-es/eeutil-shared.git</connection>
 		<developerConnection>scm:git:[push=]https://github.com/carm-es/eeutil-shared.git[fetch=]https://github.com/carm-es/eeutil-shared.git</developerConnection>
 		<url>https://github.com/carm-es/eeutil-shared.git</url>
-		<tag>v4.2.0-CARM.3</tag>
+		<tag>HEAD</tag>
 	</scm>
 
 	<properties>
