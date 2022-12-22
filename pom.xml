@@ -9,6 +9,7 @@
 
 	<name>eeutil-shared</name>
 	<description>Proyecto que contiene todos los módulos comunes de los proyectos Eeutils de la AGE</description>
+	<inceptionYear>2021</inceptionYear>
 
 	<licenses>
 		<license>
