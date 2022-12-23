@@ -105,8 +105,7 @@ public class UnidadOrganica extends Entidad {
   }
 
   @Id
-  @GenericGenerator(name = "GeneradorPk_UnidadOrganica",
-      strategy = "es.carm.EeutilsGeneratorID",
+  @GenericGenerator(name = "GeneradorPk_UnidadOrganica", strategy = "es.carm.EeutilsGeneratorID",
       parameters = @Parameter(name = "sequence", value = "GEN_UnidadOrganica"))
   @GeneratedValue(generator = "GeneradorPk_UnidadOrganica")
   @Column(name = "id", unique = true, nullable = false)

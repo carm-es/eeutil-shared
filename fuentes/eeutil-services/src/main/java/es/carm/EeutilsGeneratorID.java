@@ -28,7 +28,7 @@ public class EeutilsGeneratorID implements IdentifierGenerator, Configurable {
   private String seq = null;
 
   private String traduceSequence(String sequence) {
-	  
+
     if (sequence.equalsIgnoreCase("aplicacion_operacion")) {
       return "GEN_AppOperation";
     } else if (sequence.equalsIgnoreCase("peticiones")) {
