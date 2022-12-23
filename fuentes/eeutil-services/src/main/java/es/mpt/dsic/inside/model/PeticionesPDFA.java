@@ -16,12 +16,13 @@ import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import javax.persistence.TableGenerator;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+
+import org.hibernate.annotations.GenericGenerator;
+import org.hibernate.annotations.Parameter;
 
 @Entity
 @Table(name = "peticiones_pdfa")
@@ -33,10 +34,9 @@ public class PeticionesPDFA implements Serializable {
   private static final long serialVersionUID = 1L;
 
   @Id
-  @TableGenerator(name = "GeneradorPk_Peticiones_PDFA", table = "GeneradorClaves",
-      pkColumnName = "GenName", valueColumnName = "GenValue", pkColumnValue = "peticiones_pdfa",
-      allocationSize = 1)
-  @GeneratedValue(strategy = GenerationType.TABLE, generator = "GeneradorPk_Peticiones_PDFA")
+  @GenericGenerator(name = "GeneradorPk_Peticiones_PDFA", strategy = "es.carm.EeutilsGeneratorID",
+      parameters = @Parameter(name = "sequence", value = "peticiones_pdfa"))
+  @GeneratedValue(generator = "GeneradorPk_Peticiones_PDFA")
   @Column(name = "id", unique = true, nullable = false)
   private Integer id;
 

@@ -16,11 +16,11 @@ import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Lob;
 import javax.persistence.Table;
-import javax.persistence.TableGenerator;
+import org.hibernate.annotations.GenericGenerator;
+import org.hibernate.annotations.Parameter;
 
 @Entity
 @Table(name = "peticiones")
@@ -31,11 +31,11 @@ public class EeutilPeticion implements Serializable {
    */
   private static final long serialVersionUID = 1L;
 
+
   @Id
-  @TableGenerator(name = "GeneradorPk_Peticion", table = "GeneradorClaves",
-      pkColumnName = "GenName", valueColumnName = "GenValue", pkColumnValue = "peticiones",
-      allocationSize = 1)
-  @GeneratedValue(strategy = GenerationType.TABLE, generator = "GeneradorPk_Peticion")
+  @GenericGenerator(name = "GeneradorPk_Peticion", strategy = "es.carm.EeutilsGeneratorID",
+      parameters = @Parameter(name = "sequence", value = "peticiones"))
+  @GeneratedValue(generator = "GeneradorPk_Peticion")
   @Column(name = "id", unique = true, nullable = false)
   private Integer id;
 
