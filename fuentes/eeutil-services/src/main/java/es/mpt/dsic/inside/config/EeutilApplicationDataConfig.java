@@ -34,7 +34,7 @@ public class EeutilApplicationDataConfig {
   private static boolean CARGADO_PATH = false;
 
   private static String LOAD_LOGGER_NAME_PROPERTY = "log.load";
-  private static String LOAD_LOGGER_DEFUALT_FILE_NAME = "/log4j.properties";
+  private static String LOAD_LOGGER_DEFUALT_FILE_NAME = "/log4j2.xml";
 
   private static boolean LOAD_LOGGER = false;
 
