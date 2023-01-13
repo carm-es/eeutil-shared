@@ -20,7 +20,7 @@
 	<parent>
 		<groupId>es.gob.aapp.eeutil</groupId>
 		<artifactId>eeutil-mvn-base</artifactId>
-		<version>4.2.0-CARM.6-SNAPSHOT</version>
+		<version>4.2.0-CARM.7-SNAPSHOT</version>
 		<relativePath>../eeutil-mvn-base</relativePath>
 	</parent>
 
@@ -157,11 +157,6 @@
 		</dependency>
 
 		<dependency>
-			<groupId>org.slf4j</groupId>
-			<artifactId>slf4j-log4j12</artifactId>
-		</dependency>
-
-		<dependency>
 			<groupId>org.springframework.security</groupId>
 			<artifactId>spring-security-config</artifactId>
 			<!-- <scope>provided</scope> -->
@@ -189,6 +184,10 @@
 			<version>2.0</version>
 		</dependency>
 
+		<dependency>
+			<groupId>commons-logging</groupId>
+			<artifactId>commons-logging</artifactId>
+		</dependency>
 		<dependency>
 			<groupId>org.apache.logging.log4j</groupId>
 			<artifactId>log4j-api</artifactId>

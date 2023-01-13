@@ -17,7 +17,8 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.xml.parsers.SAXParser;
 import javax.xml.parsers.SAXParserFactory;
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
 import org.xml.sax.helpers.DefaultHandler;
@@ -30,7 +31,7 @@ import es.mpt.dsic.loadTables.utils.Constantes;
 
 public class HandlerUnidadOrganica extends DefaultHandler {
 
-  private static Logger logger = Logger.getLogger(HandlerUnidadOrganica.class);
+  private static Logger logger = LogManager.getLogger(HandlerUnidadOrganica.class);
 
   private List<Organismo> organimos;
   private Organismo organismo;

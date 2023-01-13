@@ -34,10 +34,6 @@ public class EeutilApplicationDataConfig {
   private static boolean CARGADO_PATH = false;
 
   private static String LOAD_LOGGER_NAME_PROPERTY = "log.load";
-  private static String LOAD_LOGGER_DEFUALT_FILE_NAME = "/log4j2.xml";
-
-  private static boolean LOAD_LOGGER = false;
-
 
 
   protected final static Log logger = LogFactory.getLog(EeutilApplicationDataConfig.class);
@@ -70,24 +66,7 @@ public class EeutilApplicationDataConfig {
     }
   }
 
-  static void configLog(Properties props) {
-    if (LOAD_LOGGER) {
-      try {
-        logger.debug("CAMBIANDO EL FICHERO DE LOGGER");
-        File fileLog = new File(CONFIG_PATH + System.getProperty("file.separator") + "log4j-"
-            + props.getProperty(APPLICATION_NAME_PROPERTY) + ".properties");
-        if (fileLog.exists()) {
-          logger.debug("Estableciendo sistema de log por defecto:" + LOAD_LOGGER_DEFUALT_FILE_NAME);
-          Log4jConfigurer.initLogging(fileLog.getAbsolutePath());
-        } else {
-          logger.debug("Estableciendo sistema de log por defecto:" + LOAD_LOGGER_DEFUALT_FILE_NAME);
-          Log4jConfigurer.initLogging(CONFIG_PATH + LOAD_LOGGER_DEFUALT_FILE_NAME);
-        }
-      } catch (FileNotFoundException e) {
-        System.out.println("ERROR CARGANDO EL FICHERO DE TRAZAS " + e);
-      }
-    }
-  }
+  static void configLog(Properties props) {}
 
   static void setConfigPath(String configPath, Properties props) {
     logger.debug("Directorio de configuracion: " + configPath);
@@ -97,11 +76,6 @@ public class EeutilApplicationDataConfig {
     // Carga las propiedades de nombre de version y aplicacion
     APLICACION = props.getProperty(APPLICATION_NAME_PROPERTY);
     System.setProperty("config.path", configPath);
-    String sLog = props.getProperty(LOAD_LOGGER_NAME_PROPERTY);
-    if (sLog == null) {
-      sLog = "N";
-    }
-    LOAD_LOGGER = sLog.equals("N") ? false : true;
 
     // DE momento no nos metemos con la version
     /*

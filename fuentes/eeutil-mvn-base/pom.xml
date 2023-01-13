@@ -13,7 +13,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>es.gob.aapp.eeutil</groupId>
 	<artifactId>eeutil-mvn-base</artifactId>
-	<version>4.2.0-CARM.6-SNAPSHOT</version>
+	<version>4.2.0-CARM.7-SNAPSHOT</version>
 	<packaging>pom</packaging>
 
 	<description>Librerias del proyecto Eeutil</description>
@@ -21,7 +21,7 @@
 	<parent>
 		<groupId>es.carm.eeutil</groupId>
 		<artifactId>shared-mvn-base-wrapper</artifactId>
-		<version>4.2.0-CARM.6-SNAPSHOT</version>
+		<version>4.2.0-CARM.7-SNAPSHOT</version>
 		<relativePath>../..</relativePath>
 	</parent>
 
@@ -321,7 +321,6 @@
 				<exclusions>
 					<exclusion>
 						<artifactId>commons-logging-api</artifactId>
-						<groupId>commons-logging</groupId>
 					</exclusion>
 					<exclusion>
 						<artifactId>camel-core</artifactId>
@@ -331,26 +330,20 @@
 			</dependency>
 			<!-- Loggin. Valorar el uso de slf -->
 			<dependency>
-				<groupId>org.slf4j</groupId>
-				<artifactId>slf4j-log4j12</artifactId>
-				<version>1.7.22</version>
-				<scope>compile</scope>
-			</dependency>
-			<dependency>
 				<groupId>commons-logging</groupId>
 				<artifactId>commons-logging</artifactId>
-				<version>1.1.1</version>
+				<version>1.2</version>
 			</dependency>
 			<dependency>
 				<groupId>org.apache.logging.log4j</groupId>
 				<artifactId>log4j-api</artifactId>
-				<version>2.13.3</version>
+				<version>2.6.2</version>
 				<scope>compile</scope>
 			</dependency>
 			<dependency>
 				<groupId>org.apache.logging.log4j</groupId>
 				<artifactId>log4j-core</artifactId>
-				<version>2.13.3</version>
+				<version>2.6.2</version>
 				<scope>compile</scope>
 			</dependency>
 
