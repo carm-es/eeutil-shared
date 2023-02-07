@@ -18,7 +18,7 @@
 	<parent>
 		<groupId>es.gob.aapp.eeutil</groupId>
 		<artifactId>eeutil-mvn-base</artifactId>
-		<version>4.2.0-CARM.8</version>
+		<version>4.2.0-CARM.9-SNAPSHOT</version>
 		<relativePath>../eeutil-mvn-base</relativePath>
 	</parent>
 
@@ -189,17 +189,17 @@
 		<dependency>
 			<groupId>es.gob.aapp.eeutil</groupId>
 			<artifactId>eeutil-services</artifactId>
-			<version>4.2.0-CARM.8</version>
+			<version>4.2.0-CARM.9-SNAPSHOT</version>
 		</dependency>
 		<dependency>
 			<groupId>es.gob.aapp.eeutil</groupId>
 			<artifactId>eeutil-util</artifactId>
-			<version>4.2.0-CARM.8</version>
+			<version>4.2.0-CARM.9-SNAPSHOT</version>
 		</dependency>
 		<dependency>
 			<groupId>es.gob.aapp.eeutil</groupId>
 			<artifactId>eeutil-afirmaws-stub</artifactId>
-			<version>4.2.0-CARM.8</version>
+			<version>4.2.0-CARM.9-SNAPSHOT</version>
 			<exclusions>
 				<exclusion>
 					<artifactId>cxf-rt-ws-security</artifactId>
