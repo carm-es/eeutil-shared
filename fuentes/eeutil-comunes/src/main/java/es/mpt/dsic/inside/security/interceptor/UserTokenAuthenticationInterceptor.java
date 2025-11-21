@@ -32,7 +32,9 @@ import org.apache.cxf.helpers.CastUtils;
 import org.apache.cxf.interceptor.Fault;
 import org.apache.cxf.phase.AbstractPhaseInterceptor;
 import org.apache.cxf.phase.Phase;
-import org.apache.log4j.Logger;
+// import org.apache.log4j.Logger;
+// import org.apache.logging.log4j.LogManager;
+// import org.apache.logging.log4j.Logger;
 import org.apache.ws.security.WSSecurityEngineResult;
 import org.apache.ws.security.WSUsernameTokenPrincipal;
 import org.apache.ws.security.handler.WSHandlerConstants;
@@ -51,7 +53,8 @@ import es.mpt.dsic.inside.security.service.AplicacionInfoService;
 public class UserTokenAuthenticationInterceptor extends AbstractPhaseInterceptor<SoapMessage>
     implements InitializingBean {
 
-  private static Logger logger = Logger.getLogger(UserTokenAuthenticationInterceptor.class);
+  // private static Logger logger = Logger.getLogger(UserTokenAuthenticationInterceptor.class);
+  // private static Logger logger = LogManager.getLogger(UserTokenAuthenticationInterceptor.class);
 
   @Autowired
   private AplicacionInfoService aplicacionInfoService;
@@ -83,7 +86,7 @@ public class UserTokenAuthenticationInterceptor extends AbstractPhaseInterceptor
         for (WSSecurityEngineResult wsser : wshr.getResults()) {
           WSUsernameTokenPrincipal principal =
               (WSUsernameTokenPrincipal) wsser.get(WSSecurityEngineResult.TAG_PRINCIPAL);
-          logger.warn("recibida petición ws por usuario: " + principal.getName());
+          // logger.warn("recibida petición ws por usuario: " + principal.getName());
           AppInfo app = aplicacionInfoService.getAplicacionInfo(principal.getName());
           if (app == null) {
             securityContext.setAuthentication(null);
