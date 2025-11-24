@@ -76,12 +76,12 @@
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-surefire-plugin</artifactId>
 				<configuration>
-					<systemProperties>
+					<systemPropertyVariables>
 						<property>
 							<name>config.path</name>
 							<value>${basedir}/src/test/config/${config.folder}</value>
 						</property>
-					</systemProperties>
+					</systemPropertyVariables>
 				</configuration>
 			</plugin>
 		</plugins>

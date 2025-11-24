@@ -320,6 +320,7 @@
 				<scope>compile</scope>
 				<exclusions>
 					<exclusion>
+						<groupId>commons-logging</groupId>
 						<artifactId>commons-logging-api</artifactId>
 					</exclusion>
 					<exclusion>
@@ -417,20 +418,20 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-surefire-plugin</artifactId>
-				<version>2.8.1</version>
+				<version>3.5.2</version>
 				<configuration>
 					<!-- Excluye tests de integración (acaban en *IntTest.java) -->
 					<excludes>
 						<exclude>**/integracion/*Test.java</exclude>
 					</excludes>
-					<forkMode>never</forkMode>
+					<forkCount>0</forkCount>
 					<skipTests>${skip.tests}</skipTests>
-					<systemProperties>
+					<systemPropertyVariables>
 						<property>
 							<name>config.path</name>
 							<value>${basedir}/src/main/config/${config.folder}</value>
 						</property>
-					</systemProperties>
+					</systemPropertyVariables>
 				</configuration>
 				<!-- Ejecucion de Test de integración -->
 				<executions>

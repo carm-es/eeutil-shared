@@ -59,8 +59,9 @@ import afirmaws.services.dss.org.w3._2000._09.xmldsig.CanonicalizationMethodType
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "GenericTimeStampType", propOrder = {"include", "referenceInfo",
-    "canonicalizationMethod", "encapsulatedTimeStampOrXMLTimeStamp"})
+@XmlType(name = "GenericTimeStampType",
+    propOrder = {"include", "referenceInfo", "canonicalizationMethod",
+        "encapsulatedTimeStampOrXMLTimeStamp"})
 @XmlSeeAlso({XAdESTimeStampType.class, OtherTimeStampType.class})
 public abstract class GenericTimeStampType {
 
