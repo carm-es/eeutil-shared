@@ -4,7 +4,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>es.carm.eeutil</groupId>
 	<artifactId>shared-mvn-base-wrapper</artifactId>
-	<version>4.2.0-CARM.9-SNAPSHOT</version>
+	<version>4.2.0-CARM.10-SNAPSHOT</version>
 	<packaging>pom</packaging>
 
 	<name>eeutil-shared</name>
