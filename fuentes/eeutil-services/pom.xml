@@ -17,7 +17,7 @@
   <parent>
     <groupId>es.gob.ad.gestdoc</groupId>
     <artifactId>eeutil-mvn-base</artifactId>
-    <version>6.8.2-CARM.11-SNAPSHOT</version>
+    <version>6.8.2-CARM.12-SNAPSHOT</version>
     <relativePath>../eeutil-mvn-base</relativePath>
   </parent>
   <dependencies>
@@ -58,16 +58,6 @@
     <dependency>
       <groupId>org.springframework</groupId>
       <artifactId>spring-oxm</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>commons-dbcp</groupId>
-      <artifactId>commons-dbcp</artifactId>
-      <scope>compile</scope>
-    </dependency>
-    <dependency>
-      <groupId>commons-pool</groupId>
-      <artifactId>commons-pool</artifactId>
-      <scope>compile</scope>
     </dependency>
     <dependency>
       <groupId>org.hibernate.java-persistence</groupId>
@@ -177,8 +167,13 @@
       <scope>compile</scope>
     </dependency>
     <dependency>
-      <groupId>log4j</groupId>
-      <artifactId>log4j</artifactId>
+      <groupId>org.apache.logging.log4j</groupId>
+      <artifactId>log4j-api</artifactId>
+      <scope>compile</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.logging.log4j</groupId>
+      <artifactId>log4j-core</artifactId>
       <scope>compile</scope>
     </dependency>
     <dependency>
@@ -245,19 +240,6 @@
           <groupId>org.slf4j</groupId>
         </exclusion>
       </exclusions>
-    </dependency>
-    <!-- GRAYLOG -->
-    <!-- Creo que la gelfj es la que usa actualmente redsara, viendo su fichero de configuracion. -->
-    <dependency>
-      <groupId>org.graylog2</groupId>
-      <artifactId>gelfj</artifactId>
-      <version>1.1.14</version>
-      <scope>compile</scope>
-    </dependency>
-    <dependency>
-      <groupId>biz.paluch.logging</groupId>
-      <artifactId>logstash-gelf</artifactId>
-      <version>1.11.1</version>
     </dependency>
     <!-- https://mvnrepository.com/artifact/org.bouncycastle/bcprov-jdk16 -->
     <!-- 		<dependency> -->

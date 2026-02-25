@@ -13,8 +13,6 @@ package es.mpt.dsic.inside.utils.test;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-// import org.apache.commons.logging.impl.SLF4JLocationAwareLog;
-import org.apache.commons.logging.impl.SLF4JLocationAwareLog;
 
 
 public class UtilidadesTestModel {
@@ -23,9 +21,6 @@ public class UtilidadesTestModel {
   public String testModel() {
     boolean bImpSLF4JLocationAwareLog = false;
     System.out.println(logger.getClass());
-    if (logger instanceof SLF4JLocationAwareLog) {
-      bImpSLF4JLocationAwareLog = true;
-    }
     logger.error("Is implementation SLF4JLocationAwareLog " + bImpSLF4JLocationAwareLog
         + " Is error enabled: " + logger.isErrorEnabled()
         + " Verificacion de que la traza en eeutil-model es correcta");

@@ -1,12 +1,12 @@
 /*
- * Copyright (C) 2025, Gobierno de España This program is licensed and may be used, modified and
- * redistributed under the terms of the European Public License (EUPL), either version 1.1 or (at
- * your option) any later version as soon as they are approved by the European Commission. Unless
- * required by applicable law or agreed to in writing, software distributed under the License is
- * distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
- * implied. See the License for the specific language governing permissions and more details. You
- * should have received a copy of the EUPL1.1 license along with this program; if not, you may find
- * it at http://joinup.ec.europa.eu/software/page/eupl/licence-eupl
+ * Copyright (C) 2012-13 MINHAP, Gobierno de España This program is licensed and may be used,
+ * modified and redistributed under the terms of the European Public License (EUPL), either version
+ * 1.1 or (at your option) any later version as soon as they are approved by the European
+ * Commission. Unless required by applicable law or agreed to in writing, software distributed under
+ * the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND,
+ * either express or implied. See the License for the specific language governing permissions and
+ * more details. You should have received a copy of the EUPL1.1 license along with this program; if
+ * not, you may find it at http://joinup.ec.europa.eu/software/page/eupl/licence-eupl
  */
 
 package es.mpt.dsic.inside.config;
@@ -30,14 +30,10 @@ public class EeutilApplicationDataConfig {
   public static String CONFIG_PATH = null;
   private static final String CONFIG_PATH_SYSTEM_VAR = EeutilConfigPath.CONFIG_PATH_VAR;
   // private static final String CONFIG_PATH_SYSTEM_VAR = "config.path";
-  public static final String APP_PROPERTIES_FILE = "application.properties";
+  public final static String APP_PROPERTIES_FILE = "application.properties";
   private static boolean CARGADO_PATH = false;
 
   private static String LOAD_LOGGER_NAME_PROPERTY = "log.load";
-  private static String LOAD_LOGGER_DEFUALT_FILE_NAME = "/log4j.properties";
-
-  private static boolean LOAD_LOGGER = false;
-
 
 
   protected final static Log logger = LogFactory.getLog(EeutilApplicationDataConfig.class);
@@ -70,24 +66,7 @@ public class EeutilApplicationDataConfig {
     }
   }
 
-  static void configLog(Properties props) {
-    if (LOAD_LOGGER) {
-      try {
-        logger.debug("CAMBIANDO EL FICHERO DE LOGGER");
-        File fileLog = new File(CONFIG_PATH + System.getProperty("file.separator") + "log4j-"
-            + props.getProperty(APPLICATION_NAME_PROPERTY) + ".properties");
-        if (fileLog.exists()) {
-          logger.debug("Estableciendo sistema de log por defecto:" + LOAD_LOGGER_DEFUALT_FILE_NAME);
-          Log4jConfigurer.initLogging(fileLog.getAbsolutePath());
-        } else {
-          logger.debug("Estableciendo sistema de log por defecto:" + LOAD_LOGGER_DEFUALT_FILE_NAME);
-          Log4jConfigurer.initLogging(CONFIG_PATH + LOAD_LOGGER_DEFUALT_FILE_NAME);
-        }
-      } catch (FileNotFoundException e) {
-        System.out.println("ERROR CARGANDO EL FICHERO DE TRAZAS " + e);
-      }
-    }
-  }
+  static void configLog(Properties props) {}
 
   static void setConfigPath(String configPath, Properties props) {
     logger.debug("Directorio de configuracion: " + configPath);
@@ -97,11 +76,6 @@ public class EeutilApplicationDataConfig {
     // Carga las propiedades de nombre de version y aplicacion
     APLICACION = props.getProperty(APPLICATION_NAME_PROPERTY);
     System.setProperty("config.path", configPath);
-    String sLog = props.getProperty(LOAD_LOGGER_NAME_PROPERTY);
-    if (sLog == null) {
-      sLog = "N";
-    }
-    LOAD_LOGGER = sLog.equals("N") ? false : true;
 
     // DE momento no nos metemos con la version
     /*

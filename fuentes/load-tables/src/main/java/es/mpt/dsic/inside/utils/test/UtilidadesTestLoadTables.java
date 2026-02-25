@@ -13,8 +13,6 @@ package es.mpt.dsic.inside.utils.test;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-// import org.apache.commons.logging.impl.SLF4JLocationAwareLog;
-import org.apache.commons.logging.impl.SLF4JLocationAwareLog;
 import es.mpt.dsic.inside.utils.test.IPruebaTraza;
 
 public class UtilidadesTestLoadTables implements IPruebaTraza {
@@ -23,9 +21,6 @@ public class UtilidadesTestLoadTables implements IPruebaTraza {
   public String testTrazaImp() {
     boolean bImpSLF4JLocationAwareLog = false;
 
-    if (logger instanceof SLF4JLocationAwareLog) {
-      bImpSLF4JLocationAwareLog = true;
-    }
     logger.error("Is implementation SLF4JLocationAwareLog " + bImpSLF4JLocationAwareLog
         + " Is error enabled: " + logger.isErrorEnabled()
         + " Verificacion de que la traza en load-tables es correcta");
