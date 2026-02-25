@@ -15,15 +15,15 @@
   <modelVersion>4.0.0</modelVersion>
   <artifactId>eeutil-model</artifactId>
   <description>
-  	En este proyecto se generaran todas las entidades comunes al resto de proyectos. Es importante recalcar que este proyecto no tiene l&#xF3;gica programada sino que se compone de objetos planos, (POJOs), y de interfaces.
+  	En este proyecto se generaran todas las entidades comunes al resto de proyectos. Es importante recalcar que este proyecto no tiene lógica programada sino que se compone de objetos planos, (POJOs), y de interfaces.
     * Objetos POJO de intercambio: Objeto Documento, objeto Expediente, etc.
     * Interface de acceso a repositorio decumental.
-    * Interfaces de l&#xF3;gica de servicios externa a InSide: Interfaces de Firma, de Registro Electr&#xF3;nico, etc. 
+    * Interfaces de lógica de servicios externa a InSide: Interfaces de Firma, de Registro Electrónico, etc. 
   </description>
   <parent>
     <groupId>es.gob.ad.gestdoc</groupId>
     <artifactId>eeutil-mvn-base</artifactId>
-    <version>6.8.2-CARM.11-SNAPSHOT</version>
+    <version>6.8.2-CARM.12-SNAPSHOT</version>
     <relativePath>../eeutil-mvn-base</relativePath>
   </parent>
   <dependencies>

@@ -19,7 +19,7 @@
   <parent>
     <groupId>es.gob.ad.gestdoc</groupId>
     <artifactId>eeutil-mvn-base</artifactId>
-    <version>6.8.2-CARM.11-SNAPSHOT</version>
+    <version>6.8.2-CARM.12-SNAPSHOT</version>
     <relativePath>../eeutil-mvn-base</relativePath>
   </parent>
   <dependencies>
@@ -61,16 +61,6 @@
     <dependency>
       <groupId>org.springframework</groupId>
       <artifactId>spring-oxm</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>commons-dbcp</groupId>
-      <artifactId>commons-dbcp</artifactId>
-      <scope>compile</scope>
-    </dependency>
-    <dependency>
-      <groupId>commons-pool</groupId>
-      <artifactId>commons-pool</artifactId>
-      <scope>compile</scope>
     </dependency>
     <dependency>
       <groupId>org.hibernate.java-persistence</groupId>
