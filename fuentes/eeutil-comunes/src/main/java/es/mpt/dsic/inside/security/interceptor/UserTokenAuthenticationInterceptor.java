@@ -37,7 +37,6 @@ import org.apache.cxf.message.Message;
 import org.apache.cxf.phase.AbstractPhaseInterceptor;
 import org.apache.cxf.phase.Phase;
 import org.apache.cxf.transport.http.AbstractHTTPDestination;
-import org.apache.log4j.Logger;
 import org.apache.log4j.MDC;
 import org.apache.wss4j.common.principal.WSUsernameTokenPrincipalImpl;
 import org.apache.wss4j.dom.WSSecurityEngineResult;
@@ -60,8 +59,6 @@ import es.mpt.dsic.inside.utils.exception.EeutilException;
 
 public class UserTokenAuthenticationInterceptor extends AbstractPhaseInterceptor<SoapMessage>
     implements InitializingBean {
-
-  private static Logger logger = Logger.getLogger(UserTokenAuthenticationInterceptor.class);
 
   @Autowired
   private AplicacionInfoService aplicacionInfoService;
@@ -96,7 +93,6 @@ public class UserTokenAuthenticationInterceptor extends AbstractPhaseInterceptor
         for (WSSecurityEngineResult wsser : wshr.getResults()) {
           WSUsernameTokenPrincipalImpl principal =
               (WSUsernameTokenPrincipalImpl) wsser.get(WSSecurityEngineResult.TAG_PRINCIPAL);
-          logger.info("recibida peticion ws por usuario: " + principal.getName());
           AppInfo app = aplicacionInfoService.getAplicacionInfo(principal.getName());
           if (app == null) {
             securityContext.setAuthentication(null);
@@ -143,8 +139,6 @@ public class UserTokenAuthenticationInterceptor extends AbstractPhaseInterceptor
           ((QName) message.get("javax.xml.ws.wsdl.operation")).getLocalPart(), new Date(),
           ((QName) message.get("javax.xml.ws.wsdl.interface")).getLocalPart()));
     } catch (Exception e) {
-
-      logger.error("No se ha podido guardar la auditoria en modalidad UserNameTokenAuthenticator");
     }
   }
 
