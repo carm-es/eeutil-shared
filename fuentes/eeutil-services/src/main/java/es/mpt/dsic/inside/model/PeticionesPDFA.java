@@ -1,12 +1,12 @@
 /*
- * Copyright (C) 2012-13 MINHAP, Gobierno de España This program is licensed and may be used,
- * modified and redistributed under the terms of the European Public License (EUPL), either version
- * 1.1 or (at your option) any later version as soon as they are approved by the European
- * Commission. Unless required by applicable law or agreed to in writing, software distributed under
- * the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND,
- * either express or implied. See the License for the specific language governing permissions and
- * more details. You should have received a copy of the EUPL1.1 license along with this program; if
- * not, you may find it at http://joinup.ec.europa.eu/software/page/eupl/licence-eupl
+ * Copyright (C) 2025, Gobierno de España This program is licensed and may be used, modified and
+ * redistributed under the terms of the European Public License (EUPL), either version 1.1 or (at
+ * your option) any later version as soon as they are approved by the European Commission. Unless
+ * required by applicable law or agreed to in writing, software distributed under the License is
+ * distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
+ * implied. See the License for the specific language governing permissions and more details. You
+ * should have received a copy of the EUPL1.1 license along with this program; if not, you may find
+ * it at http://joinup.ec.europa.eu/software/page/eupl/licence-eupl
  */
 
 package es.mpt.dsic.inside.model;
@@ -16,13 +16,12 @@ import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.TableGenerator;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
-
-import org.hibernate.annotations.GenericGenerator;
-import org.hibernate.annotations.Parameter;
 
 @Entity
 @Table(name = "peticiones_pdfa")
@@ -34,9 +33,10 @@ public class PeticionesPDFA implements Serializable {
   private static final long serialVersionUID = 1L;
 
   @Id
-  @GenericGenerator(name = "GeneradorPk_Peticiones_PDFA", strategy = "es.carm.EeutilsGeneratorID",
-      parameters = @Parameter(name = "sequence", value = "peticiones_pdfa"))
-  @GeneratedValue(generator = "GeneradorPk_Peticiones_PDFA")
+  @TableGenerator(name = "GeneradorPk_Peticiones_PDFA", table = "GeneradorClaves",
+      pkColumnName = "GenName", valueColumnName = "GenValue", pkColumnValue = "peticiones_pdfa",
+      allocationSize = 20)
+  @GeneratedValue(strategy = GenerationType.TABLE, generator = "GeneradorPk_Peticiones_PDFA")
   @Column(name = "id", unique = true, nullable = false)
   private Integer id;
 

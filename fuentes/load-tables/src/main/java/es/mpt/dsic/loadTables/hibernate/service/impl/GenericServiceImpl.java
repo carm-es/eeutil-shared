@@ -1,12 +1,12 @@
 /*
- * Copyright (C) 2012-13 MINHAP, Gobierno de España This program is licensed and may be used,
- * modified and redistributed under the terms of the European Public License (EUPL), either version
- * 1.1 or (at your option) any later version as soon as they are approved by the European
- * Commission. Unless required by applicable law or agreed to in writing, software distributed under
- * the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND,
- * either express or implied. See the License for the specific language governing permissions and
- * more details. You should have received a copy of the EUPL1.1 license along with this program; if
- * not, you may find it at http://joinup.ec.europa.eu/software/page/eupl/licence-eupl
+ * Copyright (C) 2025, Gobierno de España This program is licensed and may be used, modified and
+ * redistributed under the terms of the European Public License (EUPL), either version 1.1 or (at
+ * your option) any later version as soon as they are approved by the European Commission. Unless
+ * required by applicable law or agreed to in writing, software distributed under the License is
+ * distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
+ * implied. See the License for the specific language governing permissions and more details. You
+ * should have received a copy of the EUPL1.1 license along with this program; if not, you may find
+ * it at http://joinup.ec.europa.eu/software/page/eupl/licence-eupl
  */
 
 package es.mpt.dsic.loadTables.hibernate.service.impl;
@@ -20,13 +20,27 @@ import org.hibernate.Transaction;
 import org.hibernate.classic.Session;
 import org.hibernate.criterion.Criterion;
 import org.springframework.beans.factory.annotation.Autowired;
+import es.mpt.dsic.inside.dao.EeutilDao;
 import es.mpt.dsic.loadTables.hibernate.dao.GenericDAO;
 import es.mpt.dsic.loadTables.hibernate.service.GenericService;
 import es.mpt.dsic.loadTables.model.Entidad;
 
 public abstract class GenericServiceImpl<T extends Entidad> implements GenericService<T> {
 
+  private static final String FIN_SAVE_OR_UPDATE = "Fin saveOrUpdate";
+
+  private static final String INICIO_SAVE_OR_UPDATE = "Inicio saveOrUpdate";
+
+  private static final String ERROR_SAVE_OR_UPDATE = "Error saveOrUpdate:";
+
+  private static final String INICIO_MERGE = "Inicio merge";
+
+  private static final String INICIO_FIND_BY_ID = "Inicio findById";
+
   private static final Log log = LogFactory.getLog(GenericServiceImpl.class);
+
+  @Autowired
+  protected EeutilDao eeutilDao;
 
   @Autowired
   private GenericDAO<T> genericDao;
@@ -43,6 +57,20 @@ public abstract class GenericServiceImpl<T extends Entidad> implements GenericSe
   public GenericDAO<T> getGenericDao() {
     return genericDao;
   }
+
+
+
+  public EeutilDao getEeutilDao() {
+    return eeutilDao;
+  }
+
+
+
+  public void setEeutilDao(EeutilDao eeutilDao) {
+    this.eeutilDao = eeutilDao;
+  }
+
+
 
   /*
    * (non-Javadoc)
@@ -92,7 +120,7 @@ public abstract class GenericServiceImpl<T extends Entidad> implements GenericSe
    */
   @Override
   public void saveOrUpdate(T instance) {
-    log.debug("Inicio saveOrUpdate");
+    log.debug(INICIO_SAVE_OR_UPDATE);
     Session session = sessionFactory.openSession();
     Transaction tx = session.beginTransaction();
     try {
@@ -100,11 +128,11 @@ public abstract class GenericServiceImpl<T extends Entidad> implements GenericSe
       tx.commit();
     } catch (Exception e) {
       tx.rollback();
-      log.error("Error saveOrUpdate:" + e.getMessage());
+      log.error(ERROR_SAVE_OR_UPDATE + e.getMessage());
     } finally {
       session.close();
     }
-    log.debug("Fin saveOrUpdate");
+    log.debug(FIN_SAVE_OR_UPDATE);
   }
 
   /*
@@ -115,7 +143,7 @@ public abstract class GenericServiceImpl<T extends Entidad> implements GenericSe
    */
   @Override
   public void saveOrUpdateList(List<T> list) {
-    log.debug("Inicio saveOrUpdate");
+    log.debug(INICIO_SAVE_OR_UPDATE);
     Session session = sessionFactory.openSession();
     Transaction tx = session.beginTransaction();
     try {
@@ -125,11 +153,11 @@ public abstract class GenericServiceImpl<T extends Entidad> implements GenericSe
       tx.commit();
     } catch (Exception e) {
       tx.rollback();
-      log.error("Error saveOrUpdate:" + e.getMessage());
+      log.error(ERROR_SAVE_OR_UPDATE + e.getMessage());
     } finally {
       session.close();
     }
-    log.debug("Fin saveOrUpdate");
+    log.debug(FIN_SAVE_OR_UPDATE);
   }
 
   /*
@@ -140,7 +168,7 @@ public abstract class GenericServiceImpl<T extends Entidad> implements GenericSe
    */
   @Override
   public void saveOrUpdateListFlush(List<T> list, int countFlush) {
-    log.debug("Inicio saveOrUpdate");
+    log.debug(INICIO_SAVE_OR_UPDATE);
     Session session = sessionFactory.openSession();
     Transaction tx = session.beginTransaction();
     try {
@@ -159,11 +187,11 @@ public abstract class GenericServiceImpl<T extends Entidad> implements GenericSe
       tx.commit();
     } catch (Exception e) {
       tx.rollback();
-      log.error("Error saveOrUpdate:" + e.getMessage());
+      log.error(ERROR_SAVE_OR_UPDATE + e.getMessage());
     } finally {
       session.close();
     }
-    log.debug("Fin saveOrUpdate");
+    log.debug(FIN_SAVE_OR_UPDATE);
   }
 
   /*
@@ -195,7 +223,7 @@ public abstract class GenericServiceImpl<T extends Entidad> implements GenericSe
    */
   @Override
   public T merge(T detachedInstance) {
-    log.debug("Inicio merge");
+    log.debug(INICIO_MERGE);
     Session session = sessionFactory.openSession();
     Transaction tx = session.beginTransaction();
     T retorno = null;
@@ -222,7 +250,7 @@ public abstract class GenericServiceImpl<T extends Entidad> implements GenericSe
   public T findById(java.lang.Integer id, T findInstance) {
     Session session = sessionFactory.openSession();
     try {
-      log.debug("Inicio findById");
+      log.debug(INICIO_FIND_BY_ID);
       return getGenericDao().findById(id, findInstance, session);
     } finally {
       session.close();
@@ -233,7 +261,7 @@ public abstract class GenericServiceImpl<T extends Entidad> implements GenericSe
   public List<T> findById(List<T> findInstances) {
     Session session = sessionFactory.openSession();
     try {
-      log.debug("Inicio findById");
+      log.debug(INICIO_FIND_BY_ID);
       List<T> retorno = new ArrayList<T>();
       for (T findInstance : findInstances) {
         retorno.add(getGenericDao().findById(getClavePrimaria(findInstance), session));
@@ -248,7 +276,7 @@ public abstract class GenericServiceImpl<T extends Entidad> implements GenericSe
   public T findById(T findInstance) {
     Session session = sessionFactory.openSession();
     try {
-      log.debug("Inicio findById");
+      log.debug(INICIO_FIND_BY_ID);
       return getGenericDao().findById(getClavePrimaria(findInstance), session);
     } finally {
       session.close();

@@ -1,12 +1,12 @@
 /*
- * Copyright (C) 2012-13 MINHAP, Gobierno de España This program is licensed and may be used,
- * modified and redistributed under the terms of the European Public License (EUPL), either version
- * 1.1 or (at your option) any later version as soon as they are approved by the European
- * Commission. Unless required by applicable law or agreed to in writing, software distributed under
- * the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND,
- * either express or implied. See the License for the specific language governing permissions and
- * more details. You should have received a copy of the EUPL1.1 license along with this program; if
- * not, you may find it at http://joinup.ec.europa.eu/software/page/eupl/licence-eupl
+ * Copyright (C) 2025, Gobierno de España This program is licensed and may be used, modified and
+ * redistributed under the terms of the European Public License (EUPL), either version 1.1 or (at
+ * your option) any later version as soon as they are approved by the European Commission. Unless
+ * required by applicable law or agreed to in writing, software distributed under the License is
+ * distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
+ * implied. See the License for the specific language governing permissions and more details. You
+ * should have received a copy of the EUPL1.1 license along with this program; if not, you may find
+ * it at http://joinup.ec.europa.eu/software/page/eupl/licence-eupl
  */
 
 package es.mpt.dsic.inside.model;
@@ -15,11 +15,10 @@ import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
-
-import org.hibernate.annotations.GenericGenerator;
-import org.hibernate.annotations.Parameter;
+import javax.persistence.TableGenerator;
 import org.hibernate.annotations.Type;
 
 @Entity
@@ -32,10 +31,10 @@ public class EeutilAplicacionOperacion implements Serializable {
   private static final long serialVersionUID = 1L;
 
   @Id
-  @GenericGenerator(name = "GeneradorPk_Aplicacion_Operacion",
-      strategy = "es.carm.EeutilsGeneratorID",
-      parameters = @Parameter(name = "sequence", value = "aplicacion_operacion"))
-  @GeneratedValue(generator = "GeneradorPk_Aplicacion_Operacion")
+  @TableGenerator(name = "GeneradorPk_Aplicacion_Operacion", table = "GeneradorClaves",
+      pkColumnName = "GenName", valueColumnName = "GenValue",
+      pkColumnValue = "aplicacion_operacion", allocationSize = 20)
+  @GeneratedValue(strategy = GenerationType.TABLE, generator = "GeneradorPk_Aplicacion_Operacion")
   @Column(name = "id", unique = true, nullable = false)
   private Integer id;
 
