@@ -28,17 +28,6 @@ import net.javacrumbs.shedlock.provider.jdbctemplate.JdbcTemplateLockProvider;
 @Configuration
 public class ConfigurationShedlock {
 
-  @Autowired
-  private DataSource dataSource;
-
-  public DataSource getDataSource() {
-    return dataSource;
-  }
-
-  public void setDataSource(DataSource dataSource) {
-    this.dataSource = dataSource;
-  }
-
   @Value("${databaseGen.username}")
   private String databaseUsername;
 
@@ -50,8 +39,6 @@ public class ConfigurationShedlock {
 
   @Value("${databaseGen.url}")
   private String databaseUrl;
-
-
 
   @Bean
   @Primary

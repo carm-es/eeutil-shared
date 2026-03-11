@@ -41,6 +41,7 @@ import es.mpt.dsic.loadTables.utils.DateUtil;
 import es.mpt.dsic.loadTables.utils.Utils;
 import net.javacrumbs.shedlock.core.DefaultLockingTaskExecutor;
 import net.javacrumbs.shedlock.core.LockConfiguration;
+import net.javacrumbs.shedlock.core.LockProvider;
 import net.javacrumbs.shedlock.core.LockingTaskExecutor;
 
 @Component
@@ -62,7 +63,7 @@ public class UnidadOrganicaTask {
   private ConsumidorOficina consumerOficinas;
 
   @Autowired
-  ConfigurationShedlock configurationShedlock;
+  private LockProvider lockProvider;
 
   @Value("${Path.temp}")
   private String rutaTemp;
@@ -88,8 +89,7 @@ public class UnidadOrganicaTask {
 
     // Configuracion de shedlock//
     // To assert that the lock is held (prevents misconfiguration errors)
-    LockingTaskExecutor executor = new DefaultLockingTaskExecutor(
-        configurationShedlock.lockProvider(configurationShedlock.dataSource()));
+    LockingTaskExecutor executor = new DefaultLockingTaskExecutor(lockProvider);
     Runnable command = new MyDir3Task(this);
 
     // bloqueo durante 23 horas.
